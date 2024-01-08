@@ -1,21 +1,11 @@
-import React, { useEffect } from 'react';
-import ProductStore from '../Store/ProductStore';
+import React from 'react';
+import Layout from '../Component/layout/Layout';
 
 const Home = () => {
-
-    const {BrandList,BrandListRequest} = ProductStore();
-
-    useEffect(()=>{
-        (async()=>{
-            await BrandListRequest();
-        })()
-    })
-
     return (
-        <div>
-            <h1>Hello World From Home page</h1>
-            <p>{JSON.stringify(BrandList)}</p>
-        </div>
+        <Layout>
+            
+        </Layout>
     );
 };
 
