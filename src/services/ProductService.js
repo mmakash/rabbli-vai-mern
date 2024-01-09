@@ -363,9 +363,20 @@ const ReviewListService = async (req) => {
   try{
 
     let ProductId = new ObjectId(req.params.ProductId);
-    // let MatchStage = { $match: { productID: ProductId } };
+    
+    let MatchStage={$match:{productID:ProductId}}
 
-    let data = await ReviewModel.findById({ _id: ProductId });
+    let JoinWithProfileStage= {$lookup:{from:"profiles",localField:"userID",foreignField:"userID",as:"profile"}};
+    let UnwindProfileStage={$unwind:"$profile"}
+    let ProjectionStage= {$project: {'desc': 1, 'rating': 1, 'profile.cus_name': 1}}
+
+    let data= await  ReviewModel.aggregate([
+        MatchStage,
+        JoinWithProfileStage,
+        UnwindProfileStage,
+        ProjectionStage
+    ])
+
 
     return { status: "success", data: data };
 
@@ -386,7 +397,7 @@ const CreateReviewService = async (req) => {
     productID: reqBody.productID,
     userID: user_id,
     desc: reqBody.desc,
-    rating: reqBody.rating,
+    rating: reqBody.rating
     });
 
     return { status: "success", data: data };
