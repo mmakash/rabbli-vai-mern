@@ -3,13 +3,8 @@ import axios from "axios";
 
 const ProductStore = create((set) => ({
     BrandList: [],
-    CategoryList: [],
-    SliderList: [],
-    ListByBrand: [],
-    ListByCategory: [],
     ListBySimilar: [],
     ListByKeyword: [],
-    ListByRemark: [],
     Detail: [],
     ReviewList: [],
 
@@ -21,24 +16,39 @@ BrandListRequest: async () => {
             set({BrandList: res.data.data})
         }
     },
+    CategoryList: [],
 CategoryListRequest: async () => {
         const res = await axios.get("/api/v1/ProductCategoryList");
         if(res.data.status === "success"){
             set({CategoryList: res.data.data})
         }
     },
+
+    SliderList: [],
 SliderListRequest: async () => {
         const res = await axios.get("/api/v1/ProductSliderList");
         if(res.data.status === "success"){
             set({SliderList: res.data.data})
         }
     },
+
+    ListByRemark: [],
+    ListByRemarkRequest: async (Remark) => {
+        const res = await axios.get(`/api/v1/ProductListByRemark/${Remark}`);
+        if(res.data.status === "success"){
+            set({ListByRemark: res.data.data})
+        }
+    },
+
+    ListByBrand: [],
     ListByBrandRequest: async (BrandId) => {
         const res = await axios.get(`/api/v1/ProductListByBrand/${BrandId}`);
         if(res.data.status === "success"){
             set({ListByBrand: res.data.data})
         }
     },
+
+    ListByCategory: [],
     ListByCategoryRequest: async (CategoryId) => {
         const res = await axios.get(`/api/v1/ProductListByCategory/${CategoryId}`);
         if(res.data.status === "success"){
@@ -69,6 +79,8 @@ SliderListRequest: async () => {
             set({ReviewList: res.data.data})
         }
     },
+
+
 
 
 

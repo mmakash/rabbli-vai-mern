@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../Component/layout/Layout';
-import MySliderSkeleton from '../skeleton/MySliderSkeleton';
-import MyFeaturesSkeleton from '../skeleton/MyFeaturesSkeleton';
-import MyCategoriesSkeleton from '../skeleton/MyCategoriesSkeleton';
-import MyProductsSkeleton from '../skeleton/MyProductsSkeleton';
-import MyBrandsSkeleton from '../skeleton/MyBrandsSkeleton';
-
+import ProductStore from '../Store/ProductStore';
+import FeatureStore from '../Store/FeatureStore';
+import MyBrands from '../Component/product/MyBrands';
 
 
 
 
 const Home = () => {
+
+    const {SliderListRequest} = ProductStore();
+
+    const {FeatureListRequest} = FeatureStore();
+
+
+    useEffect(() => {
+        (async()=>{
+            await SliderListRequest();
+            await FeatureListRequest();
+            // await CategoryListRequest();
+            // await BrandListRequest();
+            // await ListByRemarkRequest("new");
+        })()
+    })
+
+
     return (
        <Layout>
 
-        <MySliderSkeleton />
-        <MyFeaturesSkeleton />
-        <MyCategoriesSkeleton />
-        <MyProductsSkeleton />
-        <MyBrandsSkeleton />
+        <MyBrands/>
 
        </Layout>
     );
