@@ -12,6 +12,7 @@
         "sslcommerz",
         "teamrabbil",
         "themcolor",
-        "Tokenhelper"
+        "Tokenhelper",
+        "zustand"
     ]
 }
