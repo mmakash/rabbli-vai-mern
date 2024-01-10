@@ -43,9 +43,9 @@ app.use(limiter)
 app.use("/api/v1",router)
 
 // connect with front-end
-app.use(express.static('./client/dist'));
+app.use(express.static('./client-site/dist'));
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+  res.sendFile(path.resolve(__dirname, "client-site", "dist", "index.html"));
 })
 
 
