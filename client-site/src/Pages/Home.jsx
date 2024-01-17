@@ -1,40 +1,23 @@
 import React, { useEffect } from 'react';
 import Layout from '../Component/layout/Layout';
 import ProductStore from '../Store/ProductStore';
+import FeatureStore from '../Store/FeatureStore';
 import MyBrands from '../Component/product/MyBrands';
-import axios from 'axios';
-
-
-
 
 const Home = () => {
-
     const {SliderListRequest} = ProductStore();
-
-    // const {FeatureListRequest} = FeatureStore();
-
-
-
+    const {FeatureListRequest} = FeatureStore();
 
     useEffect(() => {
-        const getFeatureList = async() => {
-            try{
-                const result = await axios.get("http://localhost:5000/api/v1/FeatureList");
-                console.log(result)
-            }catch(e){
-                console.log(e)
-            }
-        }
-        getFeatureList()
-    })
-
-
+        (async () => {
+            await SliderListRequest();
+            await FeatureListRequest();
+        })()
+    },[])
     return (
        <Layout>
-
         <MyBrands/>
-
-       </Layout>
+     </Layout>
     );
 };
 

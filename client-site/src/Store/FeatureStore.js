@@ -7,7 +7,6 @@ const FeatureStore = create((set) => ({
         const res = await axios.get("/api/v1/FeatureList");
 
         if(res.data.status === "success"){
-
             set({FeatureList: res.data.data})
         }
     }
