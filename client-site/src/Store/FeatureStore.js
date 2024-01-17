@@ -1,15 +1,15 @@
 import { create } from "zustand";
 import axios from "axios";
+import { API_BASE_URL } from "../config/config";
 
-const FeatureStore = create((set) => ({
+export const useFeatureStore = create((set) => ({
     FeatureList: [],
-    FeatureListRequest : async () => {
-        const res = await axios.get("/api/v1/FeatureList");
 
+    FeatureListRequest: async () => {
+        const res = await axios.get(API_BASE_URL + "/FeaturesList");
         if(res.data.status === "success"){
-            set({FeatureList: res.data.data})
+            set({FeatureList: await res.data.data})
         }
     }
 }))
 
-export default FeatureStore;
