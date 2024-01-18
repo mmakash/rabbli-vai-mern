@@ -3,23 +3,41 @@ import React from 'react';
 const extra = () => {
     return (
         <div>
-        <div className="section">
- <div className="container">
- <div className="row">
- <h1 className="headline-4 text-center my-2 p-0">Top Categories</h1>
- <span className="bodySmal mb-5 text-center">Explore a World of Choices Across Our Most Popular <br 
-/>Shopping Categories </span>
- <div key="" className="col-6 col-lg-8r text-center col-md-8r p-2">
- <Link to="" className="card h-100 rounded-3 bg-light">
- <div className="card-body">
- <img alt="" className="w-75" src="" />
- <p className="bodySmal mt-3">Name Here</p>
+         <div>
+  <div id="carouselExampleDark" className="carousel hero-bg carousel-dark slide">
+    <div className="carousel-indicators">
+      <button key="" type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="" 
+className="active" aria-current="true" aria-label=""></button>
+    </div>
+    <div className="carousel-inner py-5">
+      <div key="" className={""} data-bs-interval="10000">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-lg-5 col-sm-12 col-md-5 p-5">
+              <h1 className="headline-1">title</h1>
+              <p>des</p>
+              <Link to="" className="btn text-white btn-success px-5">Buy Now</Link>
+            </div>
+            <div className="col-12 col-lg-5 col-sm-12 col-md-5 p-5">
+              <img src="" className="w-100" alt="..." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button className="carousel-control-prev btn rounded-5" type="button" data-bs
+target="#carouselExampleDark" data-bs-slide="prev">
+      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Previous</span>
+    </button>
+    <button className="carousel-control-next btn" type="button" data-bs-target="#carouselExampleDark" data
+bs-slide="next">
+      <span className="carousel-control-next-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Next</span>
+    </button>
+  </div>
  </div>
- </Link>
- </div>
- </div>
- </div>
- </div>
+
         </div>
     );
 };

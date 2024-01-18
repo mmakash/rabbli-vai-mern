@@ -20,7 +20,7 @@ const MyCategories = () => {
             </span>
           {
             CategoryList.map((category)=>{
-              console.log(category);
+          
               return (
                 <div key={category._id} className="col-6 col-lg-8r text-center col-md-8r p-2">
                 <Link to={`/by-categories/${category._id}`} className="card h-100 rounded-3 bg-white">
