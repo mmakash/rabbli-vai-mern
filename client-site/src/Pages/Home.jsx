@@ -1,29 +1,39 @@
 import React, { useEffect } from 'react';
 import Layout from '../Component/layout/Layout';
+import MyBrands from '../Component/product/MyBrands';
 import useProductStore from '../Store/ProductStore';
 import { useFeatureStore } from '../Store/FeatureStore';
-import MyBrands from '../Component/product/MyBrands';
-import Features from '../Component/product/Features';
+import MySlider from '../Component/product/MySlider';
+import MyFeatures from '../Component/product/MyFeatures';
+import MyCategories from '../Component/product/MyCategories';
+import MyProducts from '../Component/product/MyProducts';
+
 
 const Home = () => {
-    const { FeatureList, FeatureListRequest } = useFeatureStore()
-    const {BrandListRequest,BrandList, CategoryListRequest, CategoryList } = useProductStore()
-    
-    console.log("Feature list ==",FeatureList)
-    console.log("Brand list ==",BrandList)
-    console.log("Category list ==",CategoryList)
 
+    const {BrandListRequest,CategoryListRequest, SliderListRequest,ListByRemarkRequest} = useProductStore();
+    const {FeatureListRequest} = useFeatureStore();
 
     useEffect(() => {
-        FeatureListRequest()
-        BrandListRequest(), 
-        CategoryListRequest()
-    }, [])
+        (async()=>{
+            await SliderListRequest();
+            await FeatureListRequest();
+            await CategoryListRequest();
+            await ListByRemarkRequest("New");
+            await BrandListRequest();
+        })()
+    },[])
 
     return (
-        <Layout>
-            <Features data={FeatureList} />
-        </Layout>
+        <>
+            <Layout>
+                <MySlider />
+                <MyFeatures />
+                <MyCategories />
+                <MyProducts />
+                <MyBrands />
+            </Layout>
+        </>
     );
 };
 

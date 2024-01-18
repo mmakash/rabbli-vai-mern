@@ -2,6 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 import { API_BASE_URL } from "../config/config";
 
+
 const useProductStore = create((set) => ({
     BrandList: [],
     ListBySimilar: [],
@@ -10,6 +11,7 @@ const useProductStore = create((set) => ({
     ReviewList: [],
     CategoryList: [],
     SliderList: [],
+
 
 BrandListRequest: async () => {
         const res = await axios.get(API_BASE_URL + "/ProductBrandList");
@@ -20,6 +22,8 @@ BrandListRequest: async () => {
     },
 
 
+
+
 CategoryListRequest: async () => {
         const res = await axios.get(API_BASE_URL + "/ProductCategoryList");
         if(res.data.status === "success"){
@@ -27,13 +31,15 @@ CategoryListRequest: async () => {
         }
     },
 
-    
+
+   
 SliderListRequest: async () => {
         const res = await axios.get(API_BASE_URL + "/ProductSliderList");
         if(res.data.status === "success"){
             set({SliderList: res.data.data})
         }
     },
+
 
     ListByRemark: [],
     ListByRemarkRequest: async (Remark) => {
@@ -43,6 +49,7 @@ SliderListRequest: async () => {
         }
     },
 
+
     ListByBrand: [],
     ListByBrandRequest: async (BrandId) => {
         const res = await axios.get(API_BASE_URL + `/ProductListByBrand/${BrandId}`);
@@ -50,6 +57,7 @@ SliderListRequest: async () => {
             set({ListByBrand: res.data.data})
         }
     },
+
 
     ListByCategory: [],
     ListByCategoryRequest: async (CategoryId) => {
@@ -87,8 +95,17 @@ SliderListRequest: async () => {
 
 
 
+
+
+
+
+
 }))
 
 
 
+
+
+
 export default useProductStore;
+
