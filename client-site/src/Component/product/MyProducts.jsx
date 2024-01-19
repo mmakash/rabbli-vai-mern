@@ -6,7 +6,7 @@ const MyProducts = () => {
   const { ListByRemark, ListByRemarkRequest } = useProductStore();
 
   useEffect(()=> {
-    ListByRemarkRequest()
+    ListByRemarkRequest("Your-remark-string")
   },[])
   
   if (ListByRemark.length === 0) {
