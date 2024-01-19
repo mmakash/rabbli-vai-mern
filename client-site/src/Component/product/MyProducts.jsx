@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useProductStore from "../../Store/ProductStore";
 import MyProductsSkeleton from "./../../skeleton/MyProductsSkeleton";
 
 const MyProducts = () => {
-  const { ListByRemark } = useProductStore();
+  const { ListByRemark, ListByRemarkRequest } = useProductStore();
 
+  useEffect(()=> {
+    ListByRemarkRequest()
+  },[])
+  
   if (ListByRemark.length === 0) {
     return <MyProductsSkeleton />;
   } else {
