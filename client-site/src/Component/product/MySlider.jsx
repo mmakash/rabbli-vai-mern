@@ -28,7 +28,6 @@ const MySlider = () => {
           <div className="carousel-inner py-5">
            {
              SliderList.map((slider,index)=>{
-                console.log(slider);
                 let active = "carousel-item"
                 if(index === 0){
                     active = "carousel-item active"

@@ -49,33 +49,30 @@ SliderListRequest: async () => {
         }
     },
 
-
-    ListByBrand: [],
+    ListProduct: [],
     ListByBrandRequest: async (BrandId) => {
         const res = await axios.get(API_BASE_URL + `/ProductListByBrand/${BrandId}`);
         if(res.data.status === "success"){
-            set({ListByBrand: res.data.data})
+            set({ListProduct: res.data.data})
         }
     },
 
-
-    ListByCategory: [],
     ListByCategoryRequest: async (CategoryId) => {
         const res = await axios.get(API_BASE_URL + `/ProductListByCategory/${CategoryId}`);
         if(res.data.status === "success"){
-            set({ListByCategory: res.data.data})
+            set({ListProduct: res.data.data})
         }
     },
     ListBySimilarRequest: async (CategoryId) => {
         const res = await axios.get(API_BASE_URL + `/ProductListBySimilar/${CategoryId}`);
         if(res.data.status === "success"){
-            set({ListBySimilar: res.data.data})
+            set({ListProduct: res.data.data})
         }
     },
     ListByKeywordRequest: async (keyword) => {
         const res = await axios.get(API_BASE_URL + `/ProductListByKeyword/${keyword}`);
         if(res.data.status === "success"){
-            set({ListByKeyword: res.data.data})
+            set({ListProduct: res.data.data})
         }
     },
     ProductDetailRequest: async (ProductId) => {
