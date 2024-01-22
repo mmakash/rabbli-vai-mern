@@ -138,31 +138,49 @@ const MyProducts = () => {
                         <div className="container">
                           <div className="row">
                             {ListByRemark.map((item) => {
-                              <div
-                                key={item._id}
-                                className="col-md-3 p-2 col-lg-3 col-sm-6 col-12"
-                              >
-                                <Link
-                                  to=""
-                                  className="card shadow-sm h-100 rounded-3 bg-white"
+                              let price = (
+                                <p className="bodyMedium  text-dark my-1">
+                                  Price{" "}
+                                </p>
+                              );
+                              if (item.discount === true) {
+                                price = (
+                                  <p className="bodyMedium  text-dark my-1">
+                                    Price:<strike>${item.price}</strike>$
+                                    {item.discountPrice}
+                                  </p>
+                                );
+                              }
+                              return (
+                                <div
+                                  key={item._id}
+                                  className="col-md-3 p-2 col-lg-3 col-sm-6 col-12"
                                 >
-                                  <img className="w-100 rounded-top-2" src="" />
-                                  <div className="card-body">
-                                    <p className="bodySmal text-secondary my-1">
-                                      title
-                                    </p>
-                                    <p className="bodyMedium  text-dark my-1">
-                                      Price{" "}
-                                    </p>
-                                    <StarRatings
-                                      rating={4}
-                                      starRatedColor="red"
-                                      starDimension="15px"
-                                      starSpacing="2px"
+                                  <Link
+                                    to={`/details/${item._id}`}
+                                    className="card shadow-sm h-100 rounded-3 bg-white"
+                                  >
+                                    <img
+                                      className="w-100 rounded-top-2"
+                                      src={item.image}
                                     />
-                                  </div>
-                                </Link>
-                              </div>;
+                                    <div className="card-body">
+                                      <p className="bodySmal text-secondary my-1">
+                                        {item.title}
+                                      </p>
+                                      <p className="bodyMedium  text-dark my-1">
+                                        {price}
+                                      </p>
+                                      <StarRatings
+                                        rating={4}
+                                        starRatedColor="red"
+                                        starDimension="15px"
+                                        starSpacing="2px"
+                                      />
+                                    </div>
+                                  </Link>
+                                </div>
+                              );
                             })}
                           </div>
                         </div>
@@ -176,32 +194,59 @@ const MyProducts = () => {
 profile-tab"
                       tabIndex="0"
                     >
-                      <div className="container">
-                        <div className="row">
-                          <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                            <Link
-                              to=""
-                              className="card shadow-sm h-100 rounded-3 bg-white"
-                            >
-                              <img className="w-100 rounded-top-2" src="" />
-                              <div className="card-body">
-                                <p className="bodySmal text-secondary my-1">
-                                  title
-                                </p>
+                      {ListByRemark.length === 0 ? (
+                        <MyProductsSkeleton />
+                      ) : (
+                        <div className="container">
+                          <div className="row">
+                            {ListByRemark.map((item) => {
+                              let price = (
                                 <p className="bodyMedium  text-dark my-1">
                                   Price{" "}
                                 </p>
-                                <StarRatings
-                                  rating={4}
-                                  starRatedColor="red"
-                                  starDimension="15px"
-                                  starSpacing="2px"
-                                />
-                              </div>
-                            </Link>
+                              );
+                              if (item.discount === true) {
+                                price = (
+                                  <p className="bodyMedium  text-dark my-1">
+                                    Price:<strike>${item.price}</strike>$
+                                    {item.discountPrice}
+                                  </p>
+                                );
+                              }
+                              return (
+                                <div
+                                  key={item._id}
+                                  className="col-md-3 p-2 col-lg-3 col-sm-6 col-12"
+                                >
+                                  <Link
+                                    to={`/details/${item._id}`}
+                                    className="card shadow-sm h-100 rounded-3 bg-white"
+                                  >
+                                    <img
+                                      className="w-100 rounded-top-2"
+                                      src={item.image}
+                                    />
+                                    <div className="card-body">
+                                      <p className="bodySmal text-secondary my-1">
+                                        {item.title}
+                                      </p>
+                                      <p className="bodyMedium  text-dark my-1">
+                                        {price}
+                                      </p>
+                                      <StarRatings
+                                        rating={4}
+                                        starRatedColor="red"
+                                        starDimension="15px"
+                                        starSpacing="2px"
+                                      />
+                                    </div>
+                                  </Link>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                     <div
                       className="tab-pane fade"
@@ -211,32 +256,59 @@ profile-tab"
 contact-tab"
                       tabIndex="0"
                     >
-                      <div className="container">
-                        <div className="row">
-                          <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                            <Link
-                              to=""
-                              className="card shadow-sm h-100 rounded-3 bg-white"
-                            >
-                              <img className="w-100 rounded-top-2" src="" />
-                              <div className="card-body">
-                                <p className="bodySmal text-secondary my-1">
-                                  title
-                                </p>
+                      {ListByRemark.length === 0 ? (
+                        <MyProductsSkeleton />
+                      ) : (
+                        <div className="container">
+                          <div className="row">
+                            {ListByRemark.map((item) => {
+                              let price = (
                                 <p className="bodyMedium  text-dark my-1">
                                   Price{" "}
                                 </p>
-                                <StarRatings
-                                  rating={4}
-                                  starRatedColor="red"
-                                  starDimension="15px"
-                                  starSpacing="2px"
-                                />
-                              </div>
-                            </Link>
+                              );
+                              if (item.discount === true) {
+                                price = (
+                                  <p className="bodyMedium  text-dark my-1">
+                                    Price:<strike>${item.price}</strike>$
+                                    {item.discountPrice}
+                                  </p>
+                                );
+                              }
+                              return (
+                                <div
+                                  key={item._id}
+                                  className="col-md-3 p-2 col-lg-3 col-sm-6 col-12"
+                                >
+                                  <Link
+                                    to={`/details/${item._id}`}
+                                    className="card shadow-sm h-100 rounded-3 bg-white"
+                                  >
+                                    <img
+                                      className="w-100 rounded-top-2"
+                                      src={item.image}
+                                    />
+                                    <div className="card-body">
+                                      <p className="bodySmal text-secondary my-1">
+                                        {item.title}
+                                      </p>
+                                      <p className="bodyMedium  text-dark my-1">
+                                        {price}
+                                      </p>
+                                      <StarRatings
+                                        rating={4}
+                                        starRatedColor="red"
+                                        starDimension="15px"
+                                        starSpacing="2px"
+                                      />
+                                    </div>
+                                  </Link>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                     <div
                       className="tab-pane fade"
@@ -246,32 +318,59 @@ contact-tab"
 tab"
                       tabIndex="0"
                     >
-                      <div className="container">
-                        <div className="row">
-                          <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                            <Link
-                              to=""
-                              className="card shadow-sm h-100 rounded-3 bg-white"
-                            >
-                              <img className="w-100 rounded-top-2" src="" />
-                              <div className="card-body">
-                                <p className="bodySmal text-secondary my-1">
-                                  title
-                                </p>
+                      {ListByRemark.length === 0 ? (
+                        <MyProductsSkeleton />
+                      ) : (
+                        <div className="container">
+                          <div className="row">
+                            {ListByRemark.map((item) => {
+                              let price = (
                                 <p className="bodyMedium  text-dark my-1">
                                   Price{" "}
                                 </p>
-                                <StarRatings
-                                  rating={4}
-                                  starRatedColor="red"
-                                  starDimension="15px"
-                                  starSpacing="2px"
-                                />
-                              </div>
-                            </Link>
+                              );
+                              if (item.discount === true) {
+                                price = (
+                                  <p className="bodyMedium  text-dark my-1">
+                                    Price:<strike>${item.price}</strike>$
+                                    {item.discountPrice}
+                                  </p>
+                                );
+                              }
+                              return (
+                                <div
+                                  key={item._id}
+                                  className="col-md-3 p-2 col-lg-3 col-sm-6 col-12"
+                                >
+                                  <Link
+                                    to={`/details/${item._id}`}
+                                    className="card shadow-sm h-100 rounded-3 bg-white"
+                                  >
+                                    <img
+                                      className="w-100 rounded-top-2"
+                                      src={item.image}
+                                    />
+                                    <div className="card-body">
+                                      <p className="bodySmal text-secondary my-1">
+                                        {item.title}
+                                      </p>
+                                      <p className="bodyMedium  text-dark my-1">
+                                        {price}
+                                      </p>
+                                      <StarRatings
+                                        rating={4}
+                                        starRatedColor="red"
+                                        starDimension="15px"
+                                        starSpacing="2px"
+                                      />
+                                    </div>
+                                  </Link>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                     <div
                       className="tab-pane fade"
@@ -281,32 +380,59 @@ tab"
 disabled-tab"
                       tabIndex="0"
                     >
-                      <div className="container">
-                        <div className="row">
-                          <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                            <Link
-                              to=""
-                              className="card shadow-sm h-100 rounded-3 bg-white"
-                            >
-                              <img className="w-100 rounded-top-2" src="" />
-                              <div className="card-body">
-                                <p className="bodySmal text-secondary my-1">
-                                  title
-                                </p>
+                      {ListByRemark.length === 0 ? (
+                        <MyProductsSkeleton />
+                      ) : (
+                        <div className="container">
+                          <div className="row">
+                            {ListByRemark.map((item) => {
+                              let price = (
                                 <p className="bodyMedium  text-dark my-1">
                                   Price{" "}
                                 </p>
-                                <StarRatings
-                                  rating={4}
-                                  starRatedColor="red"
-                                  starDimension="15px"
-                                  starSpacing="2px"
-                                />
-                              </div>
-                            </Link>
+                              );
+                              if (item.discount === true) {
+                                price = (
+                                  <p className="bodyMedium  text-dark my-1">
+                                    Price:<strike>${item.price}</strike>$
+                                    {item.discountPrice}
+                                  </p>
+                                );
+                              }
+                              return (
+                                <div
+                                  key={item._id}
+                                  className="col-md-3 p-2 col-lg-3 col-sm-6 col-12"
+                                >
+                                  <Link
+                                    to={`/details/${item._id}`}
+                                    className="card shadow-sm h-100 rounded-3 bg-white"
+                                  >
+                                    <img
+                                      className="w-100 rounded-top-2"
+                                      src={item.image}
+                                    />
+                                    <div className="card-body">
+                                      <p className="bodySmal text-secondary my-1">
+                                        {item.title}
+                                      </p>
+                                      <p className="bodyMedium  text-dark my-1">
+                                        {price}
+                                      </p>
+                                      <StarRatings
+                                        rating={4}
+                                        starRatedColor="red"
+                                        starDimension="15px"
+                                        starSpacing="2px"
+                                      />
+                                    </div>
+                                  </Link>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>
