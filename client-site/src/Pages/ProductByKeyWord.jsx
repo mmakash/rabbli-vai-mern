@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
-import useProductStore from '../Store/ProductStore';
 import {useParams} from 'react-router-dom';
 import Layout from './../Component/layout/Layout';
 import ProductList from '../Component/product/ProductList';
+import useProductStore from '../Store/ProductStore';
 
-const ProductByBrand = () => {
-    const {ListByBrandRequest} = useProductStore();
-    const {id} = useParams();
+const ProductByKeyWord = () => {
+    const {ListByKeywordRequest} = useProductStore();
+    const {keyWord} = useParams();
 
     useEffect(() => {
         (async()=>{
-            await ListByBrandRequest(id);
+            await ListByKeywordRequest(keyWord);
         })()
-    },[id])
+    },[keyWord])
 
     return (
        <Layout>
@@ -21,4 +21,4 @@ const ProductByBrand = () => {
     );
 };
 
-export default ProductByBrand;
+export default ProductByKeyWord;

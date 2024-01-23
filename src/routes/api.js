@@ -23,6 +23,8 @@ router.get("/ProductListByRemark/:Remark", ProductController.ProductListByRemark
 router.get("/ProductDetail/:ProductId", ProductController.ProductDetail);
 router.get("/ProductReviewList/:ProductId", ProductController.ProductReviewList);
 
+router.post("/ProductListByFilter", ProductController.ProductListByFilter);
+
 
 // user
 router.get("/UserOtp/:email", UserController.UserOtp);

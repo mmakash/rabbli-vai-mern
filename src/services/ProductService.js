@@ -31,7 +31,6 @@ const SliderListService = async () => {
     return { status: "error", data: error }.toString();
   }
 };
-
 const ListByBrandService = async (req) => {
   try {
     let BrandId = new ObjectId(req.params.BrandId);
@@ -170,8 +169,6 @@ const ListByRemarkService = async (req) => {
     return { status: "error", data: error }.toString();
   }
 };
-
-
 
 const ListBySimilarService = async () => {
 
@@ -356,8 +353,6 @@ catch(error){
 
 };
 
-
-
 const ReviewListService = async (req) => {
 
   try{
@@ -410,6 +405,60 @@ const CreateReviewService = async (req) => {
   
 }
 
+const ListByFilterService = async (req) => {
+  try {
+
+      let matchConditions = {};
+      if (req.body['categoryID']) {
+          matchConditions.categoryID = new ObjectId(req.body['categoryID']);
+      }
+      if (req.body['brandID']) {
+          matchConditions.brandID = new ObjectId(req.body['brandID']);
+      }
+      let MatchStage = { $match: matchConditions };
+
+
+
+      let AddFieldsStage = {
+          $addFields: { numericPrice: { $toInt: "$price" }}
+      };
+      let priceMin = parseInt(req.body['priceMin']);
+      let priceMax = parseInt(req.body['priceMax']);
+      let PriceMatchConditions = {};
+      if (!isNaN(priceMin)) {
+          PriceMatchConditions['numericPrice'] = { $gte: priceMin };
+      }
+      if (!isNaN(priceMax)) {
+          PriceMatchConditions['numericPrice'] = { ...(PriceMatchConditions['numericPrice'] || {}), $lte: priceMax };
+      }
+      let PriceMatchStage = { $match: PriceMatchConditions };
+
+
+
+
+
+
+      let JoinWithBrandStage= {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
+      let JoinWithCategoryStage={$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
+      let UnwindBrandStage={$unwind:"$brand"}
+      let UnwindCategoryStage={$unwind:"$category"}
+      let ProjectionStage={$project:{'brand._id':0,'category._id':0,'categoryID':0,'brandID':0}}
+
+      let data= await  ProductModel.aggregate([
+          MatchStage,
+          AddFieldsStage,
+          PriceMatchStage,
+          JoinWithBrandStage,JoinWithCategoryStage,
+          UnwindBrandStage,UnwindCategoryStage, ProjectionStage
+      ])
+      return {status:"success",data:data}
+
+  }catch (e) {
+      return {status:"fail",data:e}.toString()
+  }
+}
+
+
 module.exports = {
   BrandListService,
   CategoryListService,
@@ -421,5 +470,6 @@ module.exports = {
   ListByRemarkService,
   DetailService,
   ReviewListService,
-  CreateReviewService
+  CreateReviewService,
+  ListByFilterService
 };

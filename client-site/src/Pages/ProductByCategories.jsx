@@ -4,13 +4,13 @@ import {useParams} from 'react-router-dom';
 import Layout from './../Component/layout/Layout';
 import ProductList from '../Component/product/ProductList';
 
-const ProductByBrand = () => {
-    const {ListByBrandRequest} = useProductStore();
+const ProductByCategories = () => {
+    const {ListByCategoryRequest} = useProductStore();
     const {id} = useParams();
 
     useEffect(() => {
         (async()=>{
-            await ListByBrandRequest(id);
+            await ListByCategoryRequest(id);
         })()
     },[id])
 
@@ -21,4 +21,4 @@ const ProductByBrand = () => {
     );
 };
 
-export default ProductByBrand;
+export default ProductByCategories;

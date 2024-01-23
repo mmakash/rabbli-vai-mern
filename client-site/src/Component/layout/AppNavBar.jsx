@@ -1,7 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import useProductStore from "../../Store/ProductStore";
 
 const AppNavBar = () => {
+  const { SearchKeyWord, SearchKeyWordRequest } = useProductStore();
+
   return (
     <>
       <div className="container-fluid text-white p-2 bg-success">
@@ -61,12 +63,24 @@ const AppNavBar = () => {
           <div className=" d-lg-flex">
             <div className="input-group">
               <input
+                value={SearchKeyWord}
+                onChange={(e) => {
+                  SearchKeyWordRequest(e.target.value);
+                }}
                 className="form-control"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-dark" type="submit">
+              <Link
+                to={
+                  SearchKeyWord.length > 0
+                    ? `/by-key-word/${SearchKeyWord}`
+                    : `/`
+                }
+                className="btn btn-outline-dark"
+                type="submit"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -82,7 +96,7 @@ const AppNavBar = () => {
 -14 0 7 7 0 0114 0z"
                   />
                 </svg>
-              </button>
+              </Link>
             </div>
             <Link
               to="/cart"

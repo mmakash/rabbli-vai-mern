@@ -15,24 +15,17 @@ const useProductStore = create((set) => ({
 
 BrandListRequest: async () => {
         const res = await axios.get(API_BASE_URL + "/ProductBrandList");
-        // console.log(res.data);
         if (res.data.status === "success") {
             set({ BrandList: res.data.data })
         }
     },
-
-
-
 
 CategoryListRequest: async () => {
         const res = await axios.get(API_BASE_URL + "/ProductCategoryList");
         if (res.data.status === "success") {
             set({ CategoryList: res.data.data })
         }
-    },
-
-
-   
+    },  
 SliderListRequest: async () => {
         const res = await axios.get(API_BASE_URL + "/ProductSliderList");
         if (res.data.status === "success") {
@@ -53,14 +46,14 @@ SliderListRequest: async () => {
     ListByBrandRequest: async (BrandId) => {
         const res = await axios.get(API_BASE_URL + `/ProductListByBrand/${BrandId}`);
         if (res.data.status === "success") {
-            set({ ListByBrand: res.data.data })
+            set({ ListProduct: res.data.data })
         }
     },
 
     ListByCategoryRequest: async (CategoryId) => {
         const res = await axios.get(API_BASE_URL + `/ProductListByCategory/${CategoryId}`);
         if (res.data.status === "success") {
-            set({ ListByCategory: res.data.data })
+            set({ ListProduct: res.data.data })
         }
     },
     ListBySimilarRequest: async (CategoryId) => {
@@ -72,9 +65,18 @@ SliderListRequest: async () => {
     ListByKeywordRequest: async (keyword) => {
         const res = await axios.get(API_BASE_URL + `/ProductListByKeyword/${keyword}`);
         if (res.data.status === "success") {
-            set({ ListByKeyword: res.data.data })
+            set({ ListProduct: res.data.data })
         }
     },
+    
+    ListByFilterRequest: async (postBody) => {
+        // set({ ListProduct: [] })
+        const res = await axios.post(API_BASE_URL + `/ProductListByFilter/${postBody}`);
+        if (res.data.status === "success") {
+            set({ ListProduct: res.data.data })
+        }
+    },
+
     ProductDetailRequest: async (ProductId) => {
         const res = await axios.get(API_BASE_URL + `/ProductDetail/${ProductId}`);
         if (res.data.status === "success") {
@@ -88,14 +90,10 @@ SliderListRequest: async () => {
         }
     },
 
-
-
-
-
-
-
-
-
+    SearchKeyWord: "",
+    SearchKeyWordRequest: async (keyWord) => {
+        set({ SearchKeyWord: keyWord })
+    }
 
 }))
 
