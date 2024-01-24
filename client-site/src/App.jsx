@@ -4,7 +4,7 @@ import Home from './Pages/Home';
 import ProductByBrand from './Pages/ProductByBrand';
 import ProductByCategories from './Pages/ProductByCategories';
 import ProductByKeyWord from './Pages/ProductByKeyWord';
-
+import ProductDetails from './Pages/ProductDetails';
 
 
 const App = () => {
@@ -13,8 +13,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/by-brands/:id" element={<ProductByBrand />} />
-        <Route path="/by-category/:id" element={<ProductByCategories />} />
+        <Route path="/by-categories/:id" element={<ProductByCategories />} />
         <Route path="/by-key-word/:keyWord" element={<ProductByKeyWord />} />
+        <Route path="/details/:id" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>
   );

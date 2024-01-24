@@ -3,284 +3,72 @@ import React from "react";
 const extra = () => {
   return (
     <>
-      <div className="section">
-        <div className="container-fluid py-5 bg-light">
-          <div className="row">
-            <h1 className="headline-4 text-center my-2 p-0">Our Products</h1>
-            <span className="bodySmal mb-3 text-center">
-              Explore a World of Choices Across Our Most Popular
-            </span>
-            <div className="col-12">
-              <div>
-                <ul
-                  className="nav nav-pills  p-3  justify-content-center mb-3"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li className="nav-item" role="presentation">
-                    <button
-                      onClick={() => {}}
-                      className="nav-link active"
-                      id="pills-home-tab"
-                      data-bs
-                      toggle="pill"
-                      data-bs-target="#pills-new"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-home"
-                      aria
-                      selected="true"
-                    >
-                      New
-                    </button>
-                  </li>
-                  <li className="nav-item" role="presentation">
-                    <button
-                      onClick={() => {}}
-                      className="nav-link"
-                      id="pills-profile-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-trending"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-profile"
-                      aria
-                      selected="false"
-                    >
-                      Trending
-                    </button>
-                  </li>
-                  <li className="nav-item" role="presentation">
-                    <button
-                      onClick={() => {}}
-                      className="nav-link"
-                      id="pills-contact-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-popular"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-contact"
-                      aria
-                      selected="false"
-                    >
-                      Popular
-                    </button>
-                  </li>
-                  <li className="nav-item" role="presentation">
-                    <button
-                      onClick={() => {}}
-                      className="nav-link"
-                      id="pills-disabled-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-top"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-disabled"
-                      aria
-                      selected="false"
-                    >
-                      Top
-                    </button>
-                  </li>
-                  <li className="nav-item" role="presentation">
-                    <button
-                      onClick={() => {}}
-                      className="nav-link"
-                      id="pills-disabled-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-special"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-disabled"
-                      aria
-                      selected="false"
-                    >
-                      Special
-                    </button>
-                  </li>
-                </ul>
-                <div className="tab-content" id="pills-tabContent">
-                  <div
-                    className="tab-pane fade show active"
-                    id="pills-new"
-                    role="tabpanel"
-                    aria
-                    labelledby="pills-home-tab"
-                    tabIndex="0"
-                  >
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                          <Link
-                            to=""
-                            className="card shadow-sm h-100 rounded-3 bg-white"
-                          >
-                            <img className="w-100 rounded-top-2" src="" />
-                            <div className="card-body">
-                              <p className="bodySmal text-secondary my-1">
-                                title
-                              </p>
-                              <p className="bodyMedium  text-dark my-1">
-                                Price{" "}
-                              </p>
-                              <StarRatings
-                                rating={4}
-                                starRatedColor="red"
-                                starDimension="15px"
-                                starSpacing="2px"
-                              />
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tab-pane fade"
-                    id="pills-trending"
-                    role="tabpanel"
-                    aria-labelledby="pills
-profile-tab"
-                    tabIndex="0"
-                  >
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                          <Link
-                            to=""
-                            className="card shadow-sm h-100 rounded-3 bg-white"
-                          >
-                            <img className="w-100 rounded-top-2" src="" />
-                            <div className="card-body">
-                              <p className="bodySmal text-secondary my-1">
-                                title
-                              </p>
-                              <p className="bodyMedium  text-dark my-1">
-                                Price{" "}
-                              </p>
-                              <StarRatings
-                                rating={4}
-                                starRatedColor="red"
-                                starDimension="15px"
-                                starSpacing="2px"
-                              />
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tab-pane fade"
-                    id="pills-popular"
-                    role="tabpanel"
-                    aria-labelledby="pills
-contact-tab"
-                    tabIndex="0"
-                  >
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                          <Link
-                            to=""
-                            className="card shadow-sm h-100 rounded-3 bg-white"
-                          >
-                            <img className="w-100 rounded-top-2" src="" />
-                            <div className="card-body">
-                              <p className="bodySmal text-secondary my-1">
-                                title
-                              </p>
-                              <p className="bodyMedium  text-dark my-1">
-                                Price{" "}
-                              </p>
-                              <StarRatings
-                                rating={4}
-                                starRatedColor="red"
-                                starDimension="15px"
-                                starSpacing="2px"
-                              />
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tab-pane fade"
-                    id="pills-top"
-                    role="tabpanel"
-                    aria-labelledby="pills-disabled
-tab"
-                    tabIndex="0"
-                  >
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                          <Link
-                            to=""
-                            className="card shadow-sm h-100 rounded-3 bg-white"
-                          >
-                            <img className="w-100 rounded-top-2" src="" />
-                            <div className="card-body">
-                              <p className="bodySmal text-secondary my-1">
-                                title
-                              </p>
-                              <p className="bodyMedium  text-dark my-1">
-                                Price{" "}
-                              </p>
-                              <StarRatings
-                                rating={4}
-                                starRatedColor="red"
-                                starDimension="15px"
-                                starSpacing="2px"
-                              />
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="tab-pane fade"
-                    id="pills-special"
-                    role="tabpanel"
-                    aria-labelledby="pills
-disabled-tab"
-                    tabIndex="0"
-                  >
-                    <div className="container">
-                      <div className="row">
-                        <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
-                          <Link
-                            to=""
-                            className="card shadow-sm h-100 rounded-3 bg-white"
-                          >
-                            <img className="w-100 rounded-top-2" src="" />
-                            <div className="card-body">
-                              <p className="bodySmal text-secondary my-1">
-                                title
-                              </p>
-                              <p className="bodyMedium  text-dark my-1">
-                                Price{" "}
-                              </p>
-                              <StarRatings
-                                rating={4}
-                                starRatedColor="red"
-                                starDimension="15px"
-                                starSpacing="2px"
-                              />
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+       <div>
+   <div className="container mt-2">
+     <div className="row">
+       <div className="col-md-7 p-3">
+         <ProductImages />
+       </div>
+       <div className="col-md-5 p-3">
+         <h4>title</h4>
+         <p className="text-muted bodySmal my-1">Category</p>
+         <p className="text-muted bodySmal my-1">Brand</p>
+         <p className="bodySmal mb-2 mt-1">shortDes</p>
+         <span>
+           <strike class="text-secondary">$price</strike> $discountPrice </span>
+         <div className="row">
+           <div className="col-4 p-2">
+             <label className="bodySmal">Size</label>
+             <select className="form-control my-2 form-select">
+               <option value="">Size</option>
+             </select>
+           </div>
+           <div className="col-4  p-2">
+             <label className="bodySmal">Color</label>
+             <select className="form-control my-2 form-select">
+               <option value="">Color</option>
+             </select>
+           </div>
+           <div className="col-4  p-2">
+             <label className="bodySmal">Quantity</label>
+             <div className="input-group my-2">
+               <button className="btn btn-outline-secondary">-</button>
+               <input type="text" className="form-control bg-light text-center" readOnly />
+               <button className="btn btn-outline-secondary">+</button>
+             </div>
+           </div>
+           <div className="col-4  p-2">
+             <button className="btn w-100 btn-success">Add to Cart</button>
+           </div>
+           <div className="col-4  p-2">
+             <button className="btn w-100 btn-success">Add to Wish</button>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div className="row mt-3">
+       <ul className="nav nav-tabs" id="myTab" role="tablist">
+         <li className="nav-item" role="presentation">
+           <button className="nav-link active" id="Speci-tab" data-bs-toggle="tab" data-bs-target="#Speci
+tab-pane" type="button" role="tab" aria-controls="Speci-tab-pane" aria
+selected="true">Specifications</button>
+         </li>
+         <li className="nav-item" role="presentation">
+           <button className="nav-link" id="Review-tab" data-bs-toggle="tab" data-bs-target="#Review-tab
+pane" type="button" role="tab" aria-controls="Review-tab-pane" aria-selected="false">Review</button>
+ </li>
+ </ul>
+ <div className="tab-content" id="myTabContent">
+ <div className="tab-pane fade show active" id="Speci-tab-pane" role="tabpanel" aria
+labelledby="Speci-tab" tabIndex="0"></div>
+ <div className="tab-pane fade" id="Review-tab-pane" role="tabpanel" aria-labelledby="Review-tab" 
+tabIndex="0">
+ <ul className="list-group list-group-flush"></ul>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
     </>
   );
 };

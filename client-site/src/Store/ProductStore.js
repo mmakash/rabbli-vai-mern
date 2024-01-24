@@ -7,7 +7,7 @@ const useProductStore = create((set) => ({
     BrandList: [],
     ListBySimilar: [],
     ListByKeyword: [],
-    Detail: [],
+    Details: [],
     ReviewList: [],
     CategoryList: [],
     SliderList: [],
@@ -80,7 +80,7 @@ SliderListRequest: async () => {
     ProductDetailRequest: async (ProductId) => {
         const res = await axios.get(API_BASE_URL + `/ProductDetail/${ProductId}`);
         if (res.data.status === "success") {
-            set({ Detail: res.data.data })
+            set({ Details: res.data.data })
         }
     },
     ProductReviewListRequest: async (ProductId) => {
