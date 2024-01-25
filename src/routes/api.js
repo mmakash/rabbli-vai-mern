@@ -57,9 +57,9 @@ router.post("/PaymentIPN/:trxId", InvoiceController.PaymentIPN);
 
 // Feature
 router.get("/FeaturesList", FeaturesController.FeaturesList);
+router.get("/LegalDetails/:type", FeaturesController.LegalDetails);
 
 // create Review
-
 router.post("/CreateReview",AuthVerification, ProductController.CreateReview);
 
 
