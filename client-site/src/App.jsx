@@ -1,17 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home';
-import ProductByBrand from './Pages/ProductByBrand';
-import ProductByCategories from './Pages/ProductByCategories';
-import ProductByKeyWord from './Pages/ProductByKeyWord';
-import ProductDetails from './Pages/ProductDetails';
-import About from './Pages/About';
-import Refund from './Pages/Refund';
-import Privacy from './Pages/Privacy';
-import Terms from './Pages/Terms';
-import HowToBuy from './Pages/HowToBuy';
-import Contact from './Pages/Contact';
-import Complain from './Pages/Complain';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import ProductByBrand from "./Pages/ProductByBrand";
+import ProductByCategories from "./Pages/ProductByCategories";
+import ProductByKeyWord from "./Pages/ProductByKeyWord";
+import ProductDetails from "./Pages/ProductDetails";
+import About from "./Pages/About";
+import Refund from "./Pages/Refund";
+import Privacy from "./Pages/Privacy";
+import Terms from "./Pages/Terms";
+import HowToBuy from "./Pages/HowToBuy";
+import Contact from "./Pages/Contact";
+import Complain from "./Pages/Complain";
+import LoginPage from "./Pages/LoginPage";
+import OtpPage from "./Pages/OtpPage";
 
 const App = () => {
   return (
@@ -27,8 +29,10 @@ const App = () => {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/how-to-buy" element={<HowToBuy />} />
-        <Route path="/contact" element={<Contact/>} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/complain" element={<Complain />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/otp" element={<OtpPage />} />
       </Routes>
     </BrowserRouter>
   );
