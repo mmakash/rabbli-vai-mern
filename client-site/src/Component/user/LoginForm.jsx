@@ -9,17 +9,17 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   let navigate = useNavigate();
-    let {LoginFormData,LoginFormOnChange} = useUserStore();
+  let { LoginFormData, LoginFormOnChange , UserOtpRequest } = useUserStore();
 
-    async function onFormSubmit(){
-       if(!ValidationHelper.IsEmail(LoginFormData.email)){
-          toast.error("Please Enter Valid Email");
-       }
-       else{
-        let res = await useUserStore().UserOtpRequest(LoginFormData.email);
-        res ? navigate("/otp") : toast.error("Please Enter Valid Email");
-       }
+  async function onFormSubmit() {
+    if (!ValidationHelper.IsEmail(LoginFormData.email)) {
+      toast.error("Please Enter Valid Email");
     }
+    else {
+      let res = await UserOtpRequest(LoginFormData.email);
+      res ? navigate("/otp") : toast.error("Please Enter Valid Email");
+    }
+  }
 
   return (
     <>
@@ -33,8 +33,8 @@ const LoginForm = () => {
                 provide
               </p>
               <input
-              value={LoginFormData.email}
-              onChange={(e)=>LoginFormOnChange("email",e.target.value)}
+                value={LoginFormData.email}
+                onChange={(e) => LoginFormOnChange("email", e.target.value)}
                 placeholder="Email Address"
                 type="email"
                 className="form-control"

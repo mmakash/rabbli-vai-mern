@@ -1,4 +1,5 @@
 import React from "react";
+import UserSubmitButton from "./UserSubmitButton";
 
 const OtpForm = () => {
   return (
@@ -17,7 +18,7 @@ const OtpForm = () => {
                 type="text"
                 className="form-control"
               />
-              <SubmitButton
+              <UserSubmitButton
                 submit={false}
                 className="btn mt-3 btn-success"
                 text="Submit"
