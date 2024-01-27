@@ -1,7 +1,25 @@
 import React from "react";
 import UserSubmitButton from "./UserSubmitButton";
+import { useUserStore } from "../../Store/UserStore";
+import { useNavigate } from "react-router-dom";
+import ValidationHelper from './../../Utility/ValidationHelper';
+import toast from "react-hot-toast";
 
 const OtpForm = () => {
+
+  let { OtpFormData, OtpFormOnChange , VerifyLoginRequest } = useUserStore();
+  let navigate = useNavigate();
+
+  async function onFormSubmit() {
+    if (ValidationHelper.IsEmpty(OtpFormData.otp)) {
+      toast.error("Please Enter Valid Email");
+    }
+    else {
+      let res = await VerifyLoginRequest(OtpFormData.otp);
+      res ? navigate("/") : toast.error("Please Enter Valid Email");
+    }
+  }
+
   return (
     <>
       <div className="container section">
@@ -14,11 +32,14 @@ const OtpForm = () => {
                 provide
               </p>
               <input
+                value={OtpFormData.otp}
+                onChange={(e) => OtpFormOnChange("otp", e.target.value)}
                 placeholder="Verification"
                 type="text"
                 className="form-control"
               />
               <UserSubmitButton
+                onClick={onFormSubmit}
                 submit={false}
                 className="btn mt-3 btn-success"
                 text="Submit"

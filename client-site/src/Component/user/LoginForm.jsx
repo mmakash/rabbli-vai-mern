@@ -5,8 +5,6 @@ import ValidationHelper from './../../Utility/ValidationHelper';
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-
-
 const LoginForm = () => {
   let navigate = useNavigate();
   let { LoginFormData, LoginFormOnChange , UserOtpRequest } = useUserStore();
