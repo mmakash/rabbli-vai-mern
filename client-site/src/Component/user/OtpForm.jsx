@@ -7,10 +7,12 @@ import toast from "react-hot-toast";
 
 const OtpForm = () => {
 
-  let { OtpFormData, OtpFormOnChange , VerifyLoginRequest } = useUserStore();
+  let { OtpFormData, OtpFormOnChange, VerifyLoginRequest } = useUserStore();
   let navigate = useNavigate();
 
-  async function onFormSubmit() {
+  async function onFormSubmit(e) {
+    e.preventDefault()
+
     if (ValidationHelper.IsEmpty(OtpFormData.otp)) {
       toast.error("Please Enter Valid Email");
     }

@@ -11,7 +11,7 @@ export const useUserStore = create((set) => ({
     },
     OtpFormData:{otp:""},
     OtpFormOnChange: (name,value) => {
-        set((state) => ({ LoginFormData: { ...state.LoginFormData, [name]: value } }));
+        set((state) => ({ OtpFormData: { ...state.OtpFormData, [name]: value } }));
     },
 
 
