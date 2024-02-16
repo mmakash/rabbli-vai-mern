@@ -4,7 +4,6 @@ import { API_BASE_URL } from "../config/config";
 import { getEmail, setEmail } from "../Utility/utility";
 
 export const useUserStore = create((set) => ({
-
     LoginFormData:{email:""},
     LoginFormOnChange: (name,value) => {
         set((state) => ({ LoginFormData: { ...state.LoginFormData, [name]: value } }));
@@ -13,7 +12,6 @@ export const useUserStore = create((set) => ({
     OtpFormOnChange: (name,value) => {
         set((state) => ({ OtpFormData: { ...state.OtpFormData, [name]: value } }));
     },
-
 
     isFormSubmit: false,
     UserOtpRequest: async (email) => {

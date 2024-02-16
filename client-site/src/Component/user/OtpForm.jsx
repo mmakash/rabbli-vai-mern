@@ -14,7 +14,7 @@ const OtpForm = () => {
     e.preventDefault()
 
     if (ValidationHelper.IsEmpty(OtpFormData.otp)) {
-      toast.error("Please Enter Valid Email");
+      toast.error("Please Enter Valid otp");
     }
     else {
       let res = await VerifyLoginRequest(OtpFormData.otp);
